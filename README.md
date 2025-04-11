@@ -1,0 +1,1 @@
+# pragma-axum-diesel-template
