@@ -1,8 +1,8 @@
-# Pragma Template
+# 🚀 Pragma Template
 
 Pragma Template is a template for creating a new service using axum and diesel. It follows modern Rust practices, emphasizing reliability, safety, and maintainability.
 
-## Features
+## ✨ Features
 
 - **Modern Architecture**: Built with a modular crate-based design
 - **High Performance**: Leverages Rust's performance and safe concurrency
@@ -13,7 +13,7 @@ Pragma Template is a template for creating a new service using axum and diesel. 
 - **Development Tools**: Docker Compose for local development environment
 - **CI/CD**: GitHub Actions workflows for automated testing and deployments
 
-## Project Structure
+## 📂 Project Structure
 
 The project is organized into a workspace with multiple crates:
 
@@ -30,7 +30,7 @@ pragma-axum-diesel-template/
 
 This structure allows for clear separation of concerns and easier maintenance.
 
-## Getting Started
+## 🏁 Getting Started
 
 ### Prerequisites
 
@@ -92,7 +92,7 @@ docker build -t pragma-bin .
 docker run -p 3000:3000 --env-file .env pragma-bin
 ```
 
-## Configuration
+## ⚙️ Configuration
 
 The service is configured via environment variables:
 
@@ -101,7 +101,7 @@ The service is configured via environment variables:
 - `API_PORT`: Port for the API server
 - `OTEL_COLLECTOR_ENDPOINT`: OpenTelemetry collector endpoint for tracing
 
-## API Documentation
+## 📚 API Documentation
 
 When the service is running, API documentation is available at:
 
@@ -111,7 +111,7 @@ http://localhost:{API_PORT}/v1/docs
 
 The documentation is automatically generated from the API code using Utoipa.
 
-## Database Migrations
+## 🔄 Database Migrations
 
 Database migrations are managed with Diesel:
 
@@ -126,7 +126,7 @@ diesel migration run
 diesel migration generate name_of_migration
 ```
 
-## Testing
+## 🧪 Testing
 
 ```bash
 # Run all tests
@@ -139,7 +139,7 @@ cargo test -p pragma-api
 make format
 ```
 
-## Project Completion Guide
+## 🛠️ Project Completion Guide
 
 To complete this template you can:
 
@@ -156,7 +156,7 @@ To complete this template you can:
    - Complete API documentation
    - Add usage examples
 
-## Best Practices
+## 💡 Best Practices
 
 - **Security**: Always follow security best practices
 - **Testing**: Maintain high test coverage using codecov and nextes.st
@@ -165,7 +165,7 @@ To complete this template you can:
 - **Rate Limiting**: Consider implementing rate limiting to prevent abuse
 - **Audit Logging**: Add detailed audit logging for security events
 
-## Contributing
+## 🤝 Contributing
 
 1. Fork the repository
 2. Create your feature branch: `git checkout -b feature/amazing-feature`
@@ -173,11 +173,11 @@ To complete this template you can:
 4. Push to the branch: `git push origin feature/amazing-feature`
 5. Open a Pull Request
 
-## License
+## 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Acknowledgements
+## 👏 Acknowledgements
 
 - [Rust](https://www.rust-lang.org/)
 - [Axum](https://github.com/tokio-rs/axum)
