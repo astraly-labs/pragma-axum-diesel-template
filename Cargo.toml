@@ -1,0 +1,106 @@
+[workspace.package]
+name = "pragma-bin"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.86.0"
+description = "Template to create a new service using axum and diesel."
+homepage = "https://pragma.build"
+readme = "./README.md"
+exclude = [".github/"]
+license = "MIT"
+repository = "https://github.com/astraly-labs/pragma-axum-diesel-template"
+
+[workspace]
+members = [
+    # Binaries
+    "bin/pragma-bin",
+    # Crates
+    "crates/pragma-api",
+    "crates/pragma-db",
+]
+# Explicitly set the resolver to version 2, which is the default for packages with edition >= 2021
+# https://doc.rust-lang.org/edition-guide/rust-2021/default-cargo-resolver.html
+resolver = "2"
+
+[profile.release]
+# debug = 1 means line charts only, which is minimum needed for good stack traces
+debug = 1
+# Exit process with SIGABRT when any thread panics
+panic = 'abort'
+
+[workspace.lints]
+rust.missing_debug_implementations = "allow"
+rust.unreachable_pub = "warn"
+rust.unused_must_use = "deny"
+rust.rust_2018_idioms = { level = "deny", priority = -1 }
+rustdoc.all = "warn"
+
+[workspace.lints.clippy]
+# all lints that are on by default (correctness, suspicious, style, complexity, perf)
+all = { level = "warn", priority = -1 }
+
+# new lints that are still under development
+nursery = { level = "warn", priority = -1 }
+# avoid lints that are too pedantic
+future_not_send = "allow"
+fallible_impl_from = "allow"
+
+# lints which are rather strict or have occasional false positives
+pedantic = { level = "warn", priority = -1 }
+# avoid lints that are too pedantic
+must_use_candidate = "allow"
+cast_possible_truncation = "allow"
+cast_precision_loss = "allow"
+cast_sign_loss = "allow"
+missing_errors_doc = "allow"
+missing_panics_doc = "allow"
+default_trait_access = "allow"
+module_name_repetitions = "allow"
+needless_pass_by_value = "allow"
+or_fun_call = "allow"
+redundant_pub_crate = "allow"
+large_stack_arrays = "allow"
+
+
+[workspace.dependencies]
+
+# Local crates
+pragma-api = { path = "crates/pragma-api", default-features = false }
+pragma-db = { path = "crates/pragma-db", default-features = false }
+
+# Pragma crates
+pragma-common = { version = "0.1.14", features = ["telemetry", "serde", "utoipa"] }
+
+async-trait = "0.1"
+anyhow = "1"
+axum = { version = "0.8", features = ["macros", "ws", "tokio"] }
+axum-extra = { version = "0.10.0", features = ["typed-header", "query"] }
+axum-tracing-opentelemetry = "0.23.0"
+chrono = { version = "0.4.26", features = ["serde"] }
+clap = { version = "4.5", features = ["derive", "env"] }
+dotenvy = "0.15"
+futures = "0.3"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "2"
+tokio = { version = "^1.43.0", features = ["full"] }
+tokio-util = "0.7.13"
+tower-http = { version = "0.5.2", features = ["fs", "trace", "cors"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+uuid = { version = "1.4", features = ["fast-rng", "v4", "serde"] }
+
+# OpenAPI
+utoipa = { version = "5", features = ["axum_extras", "chrono", "uuid"] }
+utoipauto = "0.1.14"
+utoipa-swagger-ui = { version = "9", features = ["axum"] }
+
+# Database ORM
+diesel = { version = "2.1", features = [
+    "postgres",
+    "extras",
+    "postgres_backend",
+] }
+diesel-async = { version = "0.4.1", features = ["postgres"] }
+diesel_migrations = "2"
+deadpool-diesel = { version = "0.4", features = ["postgres"] }

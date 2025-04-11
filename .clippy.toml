@@ -1,0 +1,29 @@
+# Documentation thresholds
+missing-docs-in-crate-items = false
+
+# Complexity thresholds
+too-many-arguments-threshold = 10
+too-many-lines-threshold = 150
+type-complexity-threshold = 250
+cognitive-complexity-threshold = 250
+array-size-threshold = 500
+
+# Size thresholds
+enum-variant-size-threshold = 200
+vec-box-size-threshold = 64
+literal-representation-threshold = 16
+
+# Test allowances
+allow-expect-in-tests = true
+allow-unwrap-in-tests = true
+allow-panic-in-tests = true
+allow-print-in-tests = true
+allow-dbg-in-tests = true
+
+# Module and type organization
+msrv = "1.86.0"  # Matching our rust-version
+disallowed-names = []
+
+# Performance thresholds
+pass-by-value-size-limit = 256
+trivial-copy-size-limit = 64

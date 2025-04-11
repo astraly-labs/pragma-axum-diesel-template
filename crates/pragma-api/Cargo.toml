@@ -1,0 +1,37 @@
+[package]
+name = "pragma-api"
+version.workspace = true
+edition.workspace = true
+description.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+rust-version.workspace = true
+exclude.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+pragma-db.workspace = true
+pragma-common.workspace = true
+
+async-trait.workspace = true
+anyhow.workspace = true
+axum.workspace = true
+axum-extra.workspace = true
+chrono.workspace = true
+deadpool-diesel.workspace = true
+dotenvy.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+tower-http.workspace = true
+tracing.workspace = true
+utoipa.workspace = true
+utoipa-swagger-ui.workspace = true
+utoipauto.workspace = true
+
+axum-tracing-opentelemetry.workspace = true

@@ -1,0 +1,22 @@
+[package]
+name = "pragma-bin"
+version.workspace = true
+edition.workspace = true
+description.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+rust-version.workspace = true
+exclude.workspace = true
+
+[dependencies]
+pragma-common.workspace = true
+pragma-db.workspace = true
+pragma-api.workspace = true
+
+anyhow.workspace = true
+clap.workspace = true
+dotenvy.workspace = true
+tokio.workspace = true
+tracing.workspace = true

@@ -1,0 +1,33 @@
+services:
+  lgtm:
+      image: grafana/otel-lgtm
+      ports:
+        # Grafana
+        - "3000:3000"
+        # OpenTelemetry ports (OTLP/gRPC and OTLP/HTTP)
+        - "4317:4317"
+        - "4318:4318"
+      volumes:
+        # Optional: persist data across container restarts
+        - lgtm_data:/data
+      environment:
+      # Optional: enable logging for troubleshooting
+        - ENABLE_LOGS_ALL=true
+  db:
+    image: postgres17
+    container_name: pragma_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: pragma_user
+      POSTGRES_PASSWORD: pragma_password
+      POSTGRES_DB: pragma
+      PGPORT: 5432
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    command: postgres -c shared_preload_libraries=timescaledb
+
+volumes:
+  postgres_data:
+  lgtm_data:

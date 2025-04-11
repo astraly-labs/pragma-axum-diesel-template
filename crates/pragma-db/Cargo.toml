@@ -1,0 +1,25 @@
+[package]
+name = "pragma-db"
+version.workspace = true
+edition.workspace = true
+description.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+rust-version.workspace = true
+exclude.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+deadpool-diesel.workspace = true
+diesel_migrations.workspace = true
+diesel.workspace = true
+dotenvy.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+tracing.workspace = true

@@ -1,0 +1,31 @@
+name: Release Binaries
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  upload-assets:
+    strategy:
+      matrix:
+        binary: [pulse, crawler]
+        arch: [x86_64]
+        host: [unknown-linux-gnu]
+        include:
+          - os: ubuntu-latest
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: taiki-e/upload-rust-binary-action@v1
+        with:
+          bin: ${{ matrix.binary }}
+          target: ${{ matrix.arch }}-${{ matrix.host }}
+          archive: ${{ matrix.binary }}-${{ matrix.arch }}-${{ matrix.host }}
+          tar: unix
+          token: ${{ secrets.GITHUB_TOKEN }}
