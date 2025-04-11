@@ -12,7 +12,7 @@ jobs:
   upload-assets:
     strategy:
       matrix:
-        binary: [pulse, crawler]
+        binary: [pragma-bin]
         arch: [x86_64]
         host: [unknown-linux-gnu]
         include:

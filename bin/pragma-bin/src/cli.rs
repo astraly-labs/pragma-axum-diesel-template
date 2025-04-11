@@ -12,6 +12,6 @@ pub struct AuthCli {
     pub otel_collector_endpoint: Option<String>,
 
     /// API port
-    #[arg(long, env = "CRAWLER_API_PORT", default_value = "8080")]
+    #[arg(long, env = "API_PORT", default_value = "8080")]
     pub api_port: u16,
 }

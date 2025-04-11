@@ -60,7 +60,7 @@ impl Service for ApiService {
                 .layer(OtelInResponseLayer::default())
                 .layer(CorsLayer::permissive());
 
-            tracing::info!("🧩 Crawler API started at http://{}", socket_addr);
+            tracing::info!("🧩 API started at http://{}", socket_addr);
 
             // Create a shutdown signal from our context
             let token = ctx.token.clone();
